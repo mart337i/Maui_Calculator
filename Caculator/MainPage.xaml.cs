@@ -19,9 +19,16 @@ public partial class MainPage : ContentPage
 
     void onSquareRoot(object sender, EventArgs e)
     {
-        var calculated_double = Convert.ToDouble(calculated_string.Replace(".", ","));
+        try
+        {
+            var calculated_double = Convert.ToDouble(calculated_string.Replace(".", ","));
 
-        calculated_string = Math.Sqrt(calculated_double).ToString(); 
+            calculated_string = Math.Sqrt(calculated_double).ToString();
+        }
+        catch(Exception ex)
+        {
+            this.result.Text = "Error";
+        }
         this.result.Text = calculated_string;
     }
 
